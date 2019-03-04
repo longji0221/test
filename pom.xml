@@ -10,9 +10,9 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>client</module>
-        <module>config</module>
-        <module>gateway</module>
+       <module>gateway</module>
         <module>register</module>
+        <module>config</module>
     </modules>
 
 
