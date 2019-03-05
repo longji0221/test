@@ -11,9 +11,17 @@ public class HelloController {
     @Value("${server.port}")
     private int port;
 
+    @Value("${hello}")
+    private String hello;
+
     @RequestMapping("/index")
     public String index(){
         return "Hello World!,端口："+port;
+    }
+
+    @RequestMapping("/config")
+    public String hello(){
+        return "Hello World!,端口："+port+"config:"+hello;
     }
 
 }

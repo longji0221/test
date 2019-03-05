@@ -14,10 +14,3 @@ spring:
           username: longji0221 #访问git仓库的用户名
           password: wanlnn806221 #访问git仓库的用户密码
       label: master #配置仓库的分支
-eureka:
-  instance:
-    hostname: ${spring.cloud.client.ipAddress}
-    instanceId: ${spring.cloud.client.ipAddress}:${server.port} #以ip:port呈现
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
