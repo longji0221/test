@@ -27,7 +27,7 @@ public class WebExceptionAspect {
 
     }
 
-    @AfterThrowing(pointcut = "webPointcut()", throwing = "e")
+    @AfterThrowing(pointcut = "webPoint()", throwing = "e")
     public void handleThrowing(Exception e){
         try {
             if(StringUtils.isEmpty(e.getMessage())){

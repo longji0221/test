@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= @(#) toolbox.xml
+    Copyright (c) 2016, Project, All Rights Reserved. ============================================================= -->
+
+<toolbox>
+    <tool>
+        <key>DateTool</key>
+        <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.DateTool</class>
+    </tool>
+</toolbox>
+

@@ -6,6 +6,8 @@ import com.cloud.common.Sessions;
 import com.cloud.common.SingleResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -26,20 +28,26 @@ public class ApiInterceptor implements HandlerInterceptor {
             if (hm.getMethod().getAnnotation(NotNeedLogin.class) != null
                     || hm.getBeanType().getAnnotation(NotNeedLogin.class) != null) {
             }else {
-                if(!Sessions.isLogin(request)) {
-                    response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-                    SingleResult resp = SingleResult.buildFailure( "登陆过期", "000");
-                    render(JSON.toJSONString(resp), response);
-                    return false;
-                }
+//                if(!Sessions.isLogin(request)) {
+//                    response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+//                    SingleResult resp = SingleResult.buildFailure( "登陆过期", "000");
+//                    render(JSON.toJSONString(resp), response);
+//                    return false;
+//                }
             }
         }
         return true;
     }
     public void render(String text, HttpServletResponse res) throws IOException {
         try {
-            res.getWriter().write(text);
-            res.getWriter().flush();
+            HttpServletResponse response = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
+                    .getResponse();
+            response.reset();
+            response.setCharacterEncoding("UTF-8");
+            response.setHeader("Content-Type", "text/plain;charset=UTF-8");
+            response.setHeader("icop-content-type", "exception");
+            response.getWriter().print(text);
+            response.getWriter().close();
         }finally {
             try {
                 res.getWriter().close();
