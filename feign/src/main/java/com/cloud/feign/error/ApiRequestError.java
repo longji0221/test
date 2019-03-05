@@ -12,4 +12,9 @@ public class ApiRequestError implements ApiService {
     public String index() {
         return "服务发生故障！";
     }
+
+    @Override
+    public String c() {
+        return null;
+    }
 }

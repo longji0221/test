@@ -12,4 +12,6 @@ public interface ApiService {
      String index();
 
 
+     @RequestMapping(value = "/config",method = RequestMethod.GET)
+     String  c();
 }

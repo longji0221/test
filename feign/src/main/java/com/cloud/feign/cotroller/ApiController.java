@@ -15,4 +15,7 @@ public class ApiController {
     public String index(){
         return apiService.index();
     }
+
+    @RequestMapping(value = "config")
+    public String  c(){return apiService.c();};
 }
