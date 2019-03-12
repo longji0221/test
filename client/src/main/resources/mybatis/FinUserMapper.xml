@@ -1,0 +1,57 @@
+<mapper namespace="com.cloud.client.entity.FinUserDo" >
+    <!--基本的sql查询字段 公共引用...-->
+    <sql id="queryFields">
+        id rid,user_name,mobile,gender,birthday,id_number,gmt_create,gmt_modified
+    </sql>
+
+    <insert id="saveRecord" parameterType="FinUserDo" keyProperty="rid" useGeneratedKeys="true">
+        INSERT INTO fin_user
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="userName != null">
+                user_name,
+            </if>
+            <if test="mobile != null">
+                mobile,
+            </if>
+            <if test="gender != null">
+                gender,
+            </if>
+            <if test="birthday != null">
+                birthday,
+            </if>
+            <if test="idNumber != null">
+                id_number,
+            </if>
+            gmt_create,
+
+            <if test="gmtModified != null">
+                gmt_modified,
+            </if>
+        </trim>
+
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="userName != null" >
+                #{userName,jdbcType=INTEGER},
+            </if>
+            <if test="mobile != null" >
+                #{mobile,jdbcType=INTEGER},
+            </if>
+            <if test="gender != null" >
+                #{gender,jdbcType=VARCHAR},
+            </if>
+            <if test="birthday != null" >
+                #{birthday,jdbcType=VARCHAR},
+            </if>
+            <if test="idNumber != null" >
+                #{idNumber,jdbcType=VARCHAR},
+            </if>
+            now()                 ,
+
+            <if test="gmtModified != null" >
+                #{gmtModified,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+
+
+</mapper>

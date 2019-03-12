@@ -1,5 +1,6 @@
-package com.cloud.client.filter;
+package com.cloud.client.mvc;
 
+import com.cloud.client.filter.ApiInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
