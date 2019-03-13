@@ -1,4 +1,4 @@
-<mapper namespace="com.cloud.client.entity.FinUserDo" >
+<mapper namespace="com.cloud.client.dao.FinUserDao" >
     <!--基本的sql查询字段 公共引用...-->
     <sql id="queryFields">
         id rid,user_name,mobile,gender,birthday,id_number,gmt_create,gmt_modified
