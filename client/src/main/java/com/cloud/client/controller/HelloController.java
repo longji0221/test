@@ -1,5 +1,6 @@
 package com.cloud.client.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.cloud.client.dao.FinUserDao;
 import com.cloud.client.entity.FinUserDo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +39,9 @@ public class HelloController {
         return "";
     }
 
+    @RequestMapping("/find")
+    public String find(){
+        return JSON.toJSONString(finUserDao.find());
+    }
 
 }

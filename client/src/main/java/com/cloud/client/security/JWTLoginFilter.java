@@ -36,7 +36,7 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
             throws AuthenticationException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password, new ArrayList<>()));
+        return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password+"123", new ArrayList<>()));
 
     }
 

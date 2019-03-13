@@ -19,7 +19,7 @@ public class MyUserDetailsService implements UserDetailsService {
         List list=new ArrayList<>();
 //        SimpleGrantedAuthority authority=new SimpleGrantedAuthority("ROLE_AUTH");
 //        list.add(authority);
-        UserDetails userDetails=new User("zhangsan","123456",list);
+        UserDetails userDetails=new User("zhangsan","123456"+"123",list);
         return userDetails;
     }
 
