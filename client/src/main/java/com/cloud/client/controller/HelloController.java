@@ -29,6 +29,11 @@ public class HelloController {
 
     @RequestMapping("/signup")
     public String insert(FinUserDo finUserDo){
+        finUserDo.setIdNumber("341222test111");
+        finUserDo.setMobile("13136192222");
+        finUserDo.setGender("M");
+        finUserDo.setUserName("jilong");
+        finUserDo.setBirthday("19940229");
         finUserDao.saveRecord(finUserDo);
         return "";
     }
