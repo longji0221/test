@@ -37,7 +37,7 @@ public class ElasticSearchConfiguration {
             for (String esIp : esIps) {//添加集群IP列表
                 TransportAddress transportAddress =  new TransportAddress(
                         InetAddress.getByName(esIp),
-                        9300);
+                        port);
                 transPort.addTransportAddresses(transportAddress);
             }
 
